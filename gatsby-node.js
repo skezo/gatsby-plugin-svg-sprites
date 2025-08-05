@@ -25,7 +25,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, rules }, {
 
   if (IS_PRODUCTION && randomContentHash && name.includes('[contenthash]')) {
     if (randomContentHashValue === null) {
-      randomContentHashValue = createHash('md4')
+      randomContentHashValue = createHash('sha256')
         .update(`${Math.random()}`)
         .digest('hex')
     }
